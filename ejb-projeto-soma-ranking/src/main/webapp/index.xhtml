@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="form">
+            Informe seu nome: 
+            <h:inputText value="#{jsfRanking.nome}"/>
+            <br/>
+            <br/>
+            Insira o resultado da soma:
+            <br/>
+            <h:inputText id="numero01" value="#{jsfNumeroAleatorio.one}" size="1" readonly="true"/>
+            +
+            <h:inputText id="numero02" value="#{jsfNumeroAleatorio.one}" size="1" readonly="true"/> 
+            =
+            <h:inputText value="#{jsfRanking.resultado}" size="2"/>
+            <h:commandButton value="Validar Soma" action="#{jsfRanking.validarSoma()}"/>
+            <br/>
+            <br/>
+        </h:form>
+        <h:form>
+            ======== Ranking ======== 
+            <h:dataTable value="#{jsfRanking.all}" var="pessoa">
+                <h:column>
+                    <h:outputText value="#{pessoa.nome}"/>
+                </h:column>
+                ...
+                <h:column>
+                    <h:outputText value="#{pessoa.pontuacao}"/>
+                </h:column>
+                Ponto
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Lista de Produtos
+        <h:form>
+            <h:dataTable value="#{jsfProduto.all}" var="produto">
+                <h:column>
+                    <h:outputText value="#{produto.codigo}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{produto.descricao}"/>
+                </h:column>
+                <h:column>
+                    <h:commandButton value="add" action="#{jsfCompra.add(produto)}"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+        <br/>
+        Itens adicionados
+        <h:form>
+            <h:dataTable value="#{jsfCompra.all}" var="item">
+                <h:column>
+                    <h:outputText value="#{item.produto.codigo}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{item.produto.descricao}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{item.quantidade}"/>
+                </h:column>
+            </h:dataTable>
+            <br/>
+            <h:commandButton value="Limpar compras" action="#{jsfCompra.limparLista()}"/>
+        </h:form>
+    </h:body>
+</html>
+
